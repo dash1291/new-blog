@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-    <title>{% block title %}Home{% end block %}|Ashish Dubey's Blog</title>
+    <title>{% block title %}Home{% endblock %}|Ashish Dubey's Blog</title>
     <link rel="stylesheet" href="/static/style.css" type="text/css"/>
-     {% block head %}{% end %}
+     {% block head %}{% endblock %}
   </head>
   <body>
     <div id="container">
@@ -15,7 +15,7 @@
           <a href="/about/">About</a>
         </div>
       </div>
-      <div id="content">{% block content %}{% block end %}</div>
+      <div id="content">{% block content %}{% endblock %}</div>
       <div id="footer">
       Powered by Python.
       </div>

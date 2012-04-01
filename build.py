@@ -41,7 +41,8 @@ def init():
         if os.path.exists(dirname) != True:
             os.mkdir(dirname)
         for name in files:
-            html = build_page(root + '/' + name)
-            open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
+            if '.md' in name:
+                html = build_page(root + '/' + name)
+                open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
 if __name__=='__main__':
     init()
