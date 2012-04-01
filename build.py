@@ -5,9 +5,6 @@ import os.path
 from jinja2 import Template, FileSystemLoader, Environment
 import markdown
 
-# TODO:
-# Directory walking
-
 templates_path = os.path.join(os.path.dirname(__file__), 'templates')
 env = Environment(loader=FileSystemLoader(templates_path))
 
@@ -44,5 +41,6 @@ def init():
             if '.md' in name:
                 html = build_page(root + '/' + name)
                 open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
+
 if __name__=='__main__':
     init()
