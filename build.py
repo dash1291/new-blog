@@ -1,13 +1,12 @@
 import re
+import os
 import os.path
 
 from jinja2 import Template, FileSystemLoader, Environment
 import markdown
 
-# Walk through the directories
-# Convert .md's to .html's
-# Build homepage links
-# Build archive page
+# TODO:
+# Directory walking
 
 templates_path = os.path.join(os.path.dirname(__file__), 'templates')
 env = Environment(loader=FileSystemLoader(templates_path))
@@ -36,4 +35,13 @@ def build_page(doc_path):
     rendered = template.render(title=page_title, content=doc_html)
     return rendered
 
-build_page("doc.md")
+def init():
+    for root, dirs, files in os.walk('./docs'):
+        dirname = './site/' + root[7:]
+        if os.path.exists(dirname) != True:
+            os.mkdir(dirname)
+        for name in files:
+            html = build_page(root + '/' + name)
+            open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
+if __name__=='__main__':
+    init()
