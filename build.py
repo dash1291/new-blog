@@ -10,7 +10,7 @@ templates_path = os.path.join(os.path.dirname(__file__), 'templates')
 env = Environment(loader=FileSystemLoader(templates_path))
 
 def build_options(doc_string):
-    # build a json object of doc options for easy access
+    # build a dictionary object of doc options for easy access
     opt_start = re.search('-+\n', doc_string).end()
     opt_end = re.search('\n-+', doc_string).start()
     opt_string = doc_string[opt_start: opt_end].replace('\n', ',')
@@ -19,7 +19,7 @@ def build_options(doc_string):
 
 def strip_options(doc_string):
     # coz I don't want those options to render as HTML
-    opt_end = re.search('\n-+', doc_string).start()
+    opt_end = re.search('\n-+', doc_string).end()
     return doc_string[opt_end:]
 
 def build_page(doc_path):

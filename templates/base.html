@@ -10,9 +10,11 @@
     <div id="container">
       <div id="header">
         <div id="nav">
-          <a href="{{ site_prefix }}/home/">Home</a>
-          <a href="{{ site_prefix }}/archive/">Archive</a>
-          <a href="{{ site_prefix }}/about/">About</a>
+          <ul>
+            <li><a href="{{ site_prefix }}/home/">Home</a></li>
+            <li><a href="{{ site_prefix }}/archive/">Archive</a></li>
+            <li><a href="{{ site_prefix }}/about/">About</a></li>
+          </ul>
         </div>
       </div>
       <div id="content">{% block content %}{% endblock %}</div>
