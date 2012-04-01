@@ -1,3 +1,3 @@
 #!/bin/sh
-rsync -avz --delete site/ /opt/lampp/htdocs/newblog/
+python build.py '/newblog' && rsync -avz --delete site/ /opt/lampp/htdocs/newblog/
 

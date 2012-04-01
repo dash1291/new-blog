@@ -1,6 +1,7 @@
-import re
 import os
 import os.path
+import re
+import sys
 
 from jinja2 import Template, FileSystemLoader, Environment
 import markdown
@@ -29,7 +30,7 @@ def build_page(doc_path):
     page_title = options['title']
     template_name = options['layout'] + '.html'
     template = env.get_template(template_name)
-    rendered = template.render(title=page_title, content=doc_html)
+    rendered = template.render(site_prefix=SITE_PREFIX, title=page_title, content=doc_html)
     return rendered
 
 def init():
@@ -43,4 +44,8 @@ def init():
                 open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
 
 if __name__=='__main__':
+    if len(sys.argv) > 1:
+        SITE_PREFIX = sys.argv[1]
+    else:
+        SITE_PREFIX = ''
     init()
