@@ -1,3 +1,5 @@
+from datetime import date
+from operator import itemgetter
 import os
 import os.path
 import re
@@ -8,6 +10,15 @@ import markdown
 
 templates_path = os.path.join(os.path.dirname(__file__), 'templates')
 env = Environment(loader=FileSystemLoader(templates_path))
+posts = []
+
+def get_date(doc_path):
+    date_reg = '(\d+)/(\d+)/(\d+)'
+    res = re.search(date_reg, doc_path[7:])
+    year = res.group(1)
+    month = res.group(2)
+    day = res.group(3)
+    return date(int(year), int(month), int(day))
 
 def build_options(doc_string):
     # build a dictionary object of doc options for easy access
@@ -23,25 +34,47 @@ def strip_options(doc_string):
     return doc_string[opt_end:]
 
 def build_page(doc_path):
+    context = {}
     doc_string = open(doc_path).read()
     options = build_options(doc_string)
     doc_string = strip_options(doc_string)
     doc_html = markdown.markdown(doc_string)
     page_title = options['title']
+    context = {'site_prefix': SITE_PREFIX, 'title': page_title, 'content': doc_html}
+    if '/' in doc_path[7:]:
+        # DIRTY: This means its a blog post.
+        post_date = get_date(doc_path)
+        posts.append({'title': page_title, 'date': post_date})
+        context['date'] = str(post_date)
+
     template_name = options['layout'] + '.html'
     template = env.get_template(template_name)
-    rendered = template.render(site_prefix=SITE_PREFIX, title=page_title, content=doc_html)
+    rendered = template.render(context)
     return rendered
 
+def build_home():
+    posts.sort(key=itemgetter('date'))
+    template = env.get_template('home.html')
+    rendered = template.render(site_prefix=SITE_PREFIX, recent_posts=posts[:4])
+    open('./site/home.html', 'w').write(rendered)
+
+def build_posts_list():
+    template = env.get_template('posts.html')
+    rendered = template.render(site_prefix=SITE_PREFIX, posts=posts)
+    open('./site/posts.html', 'w').write(rendered)
+
 def init():
+    posts = []
     for root, dirs, files in os.walk('./docs'):
         dirname = './site/' + root[7:]
         if os.path.exists(dirname) != True:
             os.mkdir(dirname)
         for name in files:
-            if '.md' in name:
+            if '.md' in name:        
                 html = build_page(root + '/' + name)
                 open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
+        build_home()
+        build_posts_list()
 
 if __name__=='__main__':
     if len(sys.argv) > 1:

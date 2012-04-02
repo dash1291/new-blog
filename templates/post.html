@@ -2,7 +2,12 @@
 {% block title %} {{ title }} {% endblock %}
 {% block content %}
   <h1>{{ title }} </h2>
-  {{ content }} 
+  <div class="post-meta">
+    Posted on <span> {{ date }} </span>
+  </div>
+  <div class="post-content">
+    {{ content }}
+  </div>
 {% endblock %}
 
 
