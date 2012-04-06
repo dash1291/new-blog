@@ -44,8 +44,10 @@ def build_page(doc_path):
     if '/' in doc_path[7:]:
         # DIRTY: This means its a blog post.
         post_date = get_date(doc_path)
-        posts.append({'title': page_title, 'date': post_date})
-        context['date'] = str(post_date)
+        posts.append({'title': page_title, 'date': post_date, 
+                      'path': doc_path[7:-3] + '.html', 
+                      'date_str': post_date.strftime('%B %d, %Y')})
+        context['date'] = post_date.strftime('%B %d, %Y')
 
     template_name = options['layout'] + '.html'
     template = env.get_template(template_name)
@@ -53,7 +55,6 @@ def build_page(doc_path):
     return rendered
 
 def build_home():
-    posts.sort(key=itemgetter('date'))
     template = env.get_template('home.html')
     rendered = template.render(site_prefix=SITE_PREFIX, recent_posts=posts[:4])
     open('./site/home.html', 'w').write(rendered)
@@ -64,7 +65,6 @@ def build_posts_list():
     open('./site/posts.html', 'w').write(rendered)
 
 def init():
-    posts = []
     for root, dirs, files in os.walk('./docs'):
         dirname = './site/' + root[7:]
         if os.path.exists(dirname) != True:
@@ -73,8 +73,9 @@ def init():
             if '.md' in name:        
                 html = build_page(root + '/' + name)
                 open(dirname + '/' + name[:-3] + '.html', 'w').write(html)
-        build_home()
-        build_posts_list()
+    posts.sort(key=itemgetter('date'), reverse=True)
+    build_home()
+    build_posts_list()
 
 if __name__=='__main__':
     if len(sys.argv) > 1:

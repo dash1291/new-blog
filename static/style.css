@@ -1,6 +1,5 @@
-#body {
-  font-family: georgia;
-  font-size: 15pt;
+body {
+  background-color: #FFFFF5;
 }
 
 #content {
@@ -26,6 +25,11 @@ a:hover {
 #container {
   width: 960px;
   margin-left: 200px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
 }
 
 #nav {
@@ -57,4 +61,18 @@ a:hover {
 #content {
   clear:both;
 }
-  
+
+.post-item {
+  margin-bottom: 20px;
+  clear: both;
+}
+
+.post-date {
+  color: #aaa;
+  font-size: 12pt;
+}
+
+.post-title-link {
+  font-size: 16pt;
+  margin-right: 20px;
+}

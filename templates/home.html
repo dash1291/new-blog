@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+  <h1>Recent Posts</h1>
   {% for entry in recent_posts %}
-   <p> {{ entry.title }} </p>
+   <div class="post-item"><a class="post-title-link" href="{{ site_prefix }}/{{ entry.path }}">{{ entry.title }}</a><span class="post-date">Posted on {{ entry.date_str }}</span></div>
   {% endfor %}
 {% endblock %}
