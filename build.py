@@ -38,7 +38,7 @@ def build_page(doc_path):
     doc_string = open(doc_path).read()
     options = build_options(doc_string)
     doc_string = strip_options(doc_string)
-    doc_html = markdown.markdown(doc_string)
+    doc_html = markdown.markdown(doc_string, ['codehilite'])
     page_title = options['title']
     context = {'site_prefix': SITE_PREFIX, 'title': page_title, 'content': doc_html}
     if '/' in doc_path[7:]:
@@ -57,7 +57,7 @@ def build_page(doc_path):
 def build_home():
     template = env.get_template('home.html')
     rendered = template.render(site_prefix=SITE_PREFIX, recent_posts=posts[:4])
-    open('./site/home.html', 'w').write(rendered)
+    open('./site/index.html', 'w').write(rendered)
 
 def build_posts_list():
     template = env.get_template('posts.html')
