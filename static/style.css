@@ -10,6 +10,7 @@ body {
   font-family: "Palatino";
   color: #666633;
   font-size: 24pt;
+  clear: both;
 }
 
 a {
@@ -28,8 +29,6 @@ a:hover {
 }
 
 #footer {
-  position: absolute;
-  bottom: 0px;
 }
 
 #nav {
@@ -58,10 +57,6 @@ a:hover {
   color: black;
 }
 
-#content {
-  clear:both;
-}
-
 .post-item {
   margin-bottom: 20px;
   clear: both;
@@ -75,4 +70,18 @@ a:hover {
 .post-title-link {
   font-size: 16pt;
   margin-right: 20px;
+}
+
+.post h1 {
+  margin-bottom:5px;
+}
+
+.post-meta {
+  margin-bottom:20px;
+}
+
+.post-end {
+  border:1px solid grey;
+  margin-top:10px;
+  margin-bottom:10px;
 }
