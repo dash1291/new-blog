@@ -8,9 +8,9 @@
   <author><name>Ashish Dubey</name></author>
   {% for entry in posts %}
     <entry>
-      <id>{{ site_prefix }}/entry/{{ entry.path }}</id>
+      <id>{{ site_prefix }}/{{ entry.path }}</id>
       <title type="text">{{ entry.title }}</title>
-      <link href="{{ site_prefix }}/entry/{{ entry.path }}" rel="alternate" type="text/html"/>
+      <link href="{{ site_prefix }}/{{ entry.path }}" rel="alternate" type="text/html"/>
       <updated>{{ entry.date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
       <published>{{ entry.date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</published>
 			<content type="xhtml" xml:base="{{ site_prefix }}">
