@@ -61,22 +61,22 @@ class Builder():
         options = self.build_options(doc_string)
         doc_string = self.strip_options(doc_string)
         doc_html = markdown.markdown(doc_string)
-
         page_title = options['title']
         context = {'site_prefix': self.config['SITE_PREFIX'],
                    'title': page_title, 'content': doc_html}
         template_name = options['layout'] + '.html'
         template = self.template_env.get_template(template_name)
-        rendered = template.render(context)
-
-        if '/' in doc_path[7:]:
+ 
+        if options['layout'] == 'post':
             # DIRTY: This means its a blog post.
             post_date = self.get_date(doc_path)
             self.posts.append({'title': page_title, 'content': doc_html, 
                         'date': post_date, 'path': doc_path[7:-3] + '.html',
                         'date_str': post_date.strftime('%B %d, %Y')})
             context['date'] = post_date.strftime('%B %d, %Y')
-        
+
+        rendered = template.render(context)
+   
         return rendered
 
     def build_home(self):

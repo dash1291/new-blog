@@ -1,16 +1,24 @@
 body {
-  background-color: #FFFFF5;
 }
 
 #content {
   font-family: verdana, sans-serif;
 }
 
-#content h1 {
+.post p, li, span, a {
+  font-family: "Georgia";
+  color: #555;
+  font-size: 15pt;
+}
+
+#content h1, h2, h3 {
   font-family: "Palatino";
   color: #666633;
-  font-size: 24pt;
   clear: both;
+}
+
+.post h2, h3{
+  margin: 30px 0 -8px 0;
 }
 
 a {
@@ -29,6 +37,11 @@ a:hover {
 }
 
 #footer {
+  margin-bottom: 5px;
+  color: #999;
+  font-size: 12pt;
+  font-style: italic;
+  float: right;
 }
 
 #nav {
