@@ -9,6 +9,9 @@
   <body>
     <div id="container">
       <div id="header">
+        <div id="branding">
+          <a href="{{ site_prefix }}">Ashish Dubey's Blog</a>
+        </div>
         <div id="nav">
           <ul>
             <li><a href="{{ site_prefix }}">Home</a></li>
@@ -16,6 +19,7 @@
             <li><a href="{{ site_prefix }}/about.html">About</a></li>
           </ul>
         </div>
+        <div style="clear: both"></div>
       </div>
       <div id="content">{% block content %}{% endblock %}</div>
       <div id="footer">

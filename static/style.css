@@ -1,20 +1,38 @@
 body {
 }
 
+#header {
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
 #content {
   font-family: verdana, sans-serif;
 }
 
-.post p, li, span, a {
-  font-family: "Georgia";
+#branding a {
+  float: left;
+  margin-top: 20px;
+  font-size: 50px;
+  font-family: 'Palatino', sans-serif;
+  color: #AAA;
+  text-decoration: underline;
+}
+
+.post p, p, li, span, a {
+  font-family: "Georgia", sans-serif;
   color: #555;
-  font-size: 15pt;
+  font-size: 20px;
+}
+
+.post, p {
+  line-height: 30px;
 }
 
 #content h1, h2, h3 {
-  font-family: "Palatino";
+  font-family: "Palatino", sans-serif;
   color: #666633;
   clear: both;
+  font-weight: 500;
 }
 
 .post h2, h3{
@@ -97,4 +115,15 @@ a:hover {
   border:1px solid grey;
   margin-top:10px;
   margin-bottom:10px;
+}
+
+pre {
+  padding: 5px 0 5px 25px;
+  line-height: 20px;
+}
+
+pre span {
+  font-family: 'Verdana', sans-serif;
+  font-size: 11pt;
+  font-weight: 300 !important;
 }

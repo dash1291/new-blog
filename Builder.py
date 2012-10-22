@@ -6,8 +6,12 @@ import os.path
 import re
 import sys
 
+from bs4 import BeautifulSoup
 from jinja2 import Template, FileSystemLoader, Environment
 import markdown
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
 
 class Builder():
     def __init__(self, config):
@@ -76,7 +80,7 @@ class Builder():
             context['date'] = post_date.strftime('%B %d, %Y')
 
         rendered = template.render(context)
-   
+        rendered = self.syntax_highlight(rendered)
         return rendered
 
     def build_home(self):
@@ -96,3 +100,24 @@ class Builder():
         rendered = template.render(site_prefix=self.config['SITE_PREFIX'],
                                    posts=self.posts)
         open('./site/atom.xml', 'w').write(rendered)
+
+    def syntax_highlight(self, html):
+        soup = BeautifulSoup(html)
+        lang_set = []
+        codes = soup.find_all('pre')
+        if codes:
+            for code in codes:
+                if 'class' in code.attrs.keys():
+                    lang = code['class'][0]
+                    lexer = get_lexer_by_name(lang, stripall=True)
+                    formatter = HtmlFormatter(lineos=True, cssclass=lang, style='friendly')
+                    result = highlight(code.text, lexer, formatter)
+                    if lang not in lang_set:
+                        style = '<style>' + formatter.get_style_defs('.' + lang) + (
+                                '</style>')
+                        lang_set.append(lang)
+                    else:
+                        style = ''
+
+                    html = html.replace(unicode(code), style + result)
+        return html
