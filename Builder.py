@@ -10,8 +10,9 @@ from bs4 import BeautifulSoup
 from jinja2 import Template, FileSystemLoader, Environment
 import markdown
 from pygments import highlight
-from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
+from pygments.lexers import get_lexer_by_name
+
 
 class Builder():
     def __init__(self, config):
@@ -24,7 +25,7 @@ class Builder():
         self.build_home()
         self.build_archive()
         self.build_rss()
-  
+
     def compile_pages(self):
         docs_dir = os.path.join(self.config['BLOG_PATH'], 'docs')
         for root, dirs, files in os.walk(docs_dir):
@@ -33,11 +34,11 @@ class Builder():
             if os.path.exists(dirname) != True:
                 os.mkdir(dirname)
             for name in files:
-                if '.md' in name: 
+                if '.md' in name:
                     html = self.build_page(os.path.join(root, name))
                     open(os.path.join(dirname, name[:-3] + '.html'), 'w').write(html)
         self.posts.sort(key=itemgetter('date'), reverse=True)
-    
+
     def get_date(self, doc_path):
         date_reg = '(\d+)/(\d+)/(\d+)'
         res = re.search(date_reg, doc_path[7:])
@@ -70,11 +71,11 @@ class Builder():
                    'title': page_title, 'content': doc_html}
         template_name = options['layout'] + '.html'
         template = self.template_env.get_template(template_name)
- 
+
         if options['layout'] == 'post':
             # DIRTY: This means its a blog post.
             post_date = self.get_date(doc_path)
-            self.posts.append({'title': page_title, 'content': doc_html, 
+            self.posts.append({'title': page_title, 'content': doc_html,
                         'date': post_date, 'path': doc_path[7:-3] + '.html',
                         'date_str': post_date.strftime('%B %d, %Y')})
             context['date'] = post_date.strftime('%B %d, %Y')

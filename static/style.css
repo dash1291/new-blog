@@ -1,6 +1,3 @@
-body {
-}
-
 #header {
   margin-top: 25px;
   margin-bottom: 40px;
@@ -56,14 +53,15 @@ a:hover {
 
 
 #container {
-  width: 960px;
-  margin-left: 200px;
+  max-width: 60%;
+  margin: 0 auto;
+  min-width: 800px;
 }
 
 #footer {
   margin: 10px 5px 10px;
   color: #999;
-  font-size: 12pt;
+  font-size: 16px;
   font-style: italic;
   float: right;
 }
@@ -75,11 +73,12 @@ a:hover {
 
 #nav li {
   display: inline;
+  padding: 0;
 }
 
 #nav a {
   font-family: verdana, sans-serif;
-  font-size: 16pt;
+  font-size: 20px;
   display: block;
   float: left;
   height: 40px;
@@ -101,11 +100,11 @@ a:hover {
 
 .post-date {
   color: #aaa;
-  font-size: 12pt;
+  font-size: 16px;
 }
 
 .post-title-link {
-  font-size: 16pt;
+  font-size: 20px;
   margin-right: 20px;
 }
 
@@ -130,6 +129,48 @@ pre {
 
 pre span {
   font-family: 'Verdana', sans-serif;
-  font-size: 11pt;
+  font-size: 15px;
   font-weight: 300 !important;
+}
+
+@media screen and (max-width: 824px) {
+  #nav, #header, #branding a, #footer, #nav a {
+    clear: both;
+    text-align: center;
+    width: 100%;
+  }
+
+  #header {
+    margin-bottom: 5px;
+  }
+
+  #nav {
+    margin-bottom: 0px;
+  }
+
+  #branding {
+    display: block;
+    clear: both;
+  }
+
+  #branding a {
+    font-size: 40px;
+  }
+
+  .post-date {
+    color: #aaa;
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+  }
+
+  #container {
+    min-width: 90%;
+    margin: 0 auto;
+  }
+
+  #nav ul {
+    margin: 0;
+    padding: 5px;
+  }
 }
