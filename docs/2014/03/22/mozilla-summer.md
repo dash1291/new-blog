@@ -1,6 +1,6 @@
 -------
 "title": "Communication Dashboard in Firefox Marketplace"
-"layout": "page"
+"layout": "post"
 -------
 
 *This is one of the awfully long-time overdue posts I've had in my mind, but have not been able to make it on this space. But since its never too late, I'm writing about the cool project I was working on while interning at Mozilla during the summer of 2013.*
@@ -14,11 +14,14 @@
 So, in the Marketplace workflow, we have three kinds of users namely, developers, reviewers and users (Firefox users who download the apps). The review process is basically hidden from the users as it is not relevant to them. Its the developers and reviewers which interact with each other during the review process mainly for feedback, reporting issues and asking questions. The Reviewer Tools provides a dashboard for the reviewers to review apps, which allows them to pick apps they want to review, and take actions on the apps they are reviewing (that is reject, make public, delete or ask for more information). On the other hand, Developer Hub is the dashboard for the developers, which they can manage apps (that is upload an app, edit uploaded apps). Though, this is an efficient workflow for both developers and reviewers, but on the communication front they are a bit disconnected. Every time, a reviewer takes an action on an app, its developer is notified about the action and the enclosed comments in an email. If the developer has any question or comment on the action, they reply back to the email which is delivered to a mailing list which has all the reviewers as its members. While the process works and is transparent, its not the best experience for both developers and especially reviewers. There is no central place in Marketplace where users can view all their conversation. It is totally tied up with their email. Also, communication on mailing lists gets messy after a while, reviewers have to keep track of developers' email addresses, among other hassles. So my project for the summer was to revamp this process in the following ways:
 
 1. Create a dashboard for both reviewers and developers to access their present and past conversations. This should be used to read and reply to the messages exchanged between the users.
+
 2. Bridge the email conversation and dashboard, so that the users can use both modes of communication as they please.
 
 ## About the Solution
 
 This is what a part of solution looked like:
+
+![Dashboard Screenshot](/static/img/commbadgescreen.png)
 
 This is the communication dashboard frontend which is written over the same codebase that the Firefox Marketplace is based on, that is [fireplace](https://github.com/mozilla/fireplace), which is essentially a homegrown client-side framework with Marketplace specific bits like how the requests are dispatched, responses are cached, and rendered. Later, most of the Marketplacey commonware was abstracted out and [commonplace](https://github.com/mozilla/commonplace) was born, which served as the base for all other Marketplace related projects, including communication dashboard frontend, source code of which resides in [commbadge](https://github.com/mozilla/commbadge).
 
@@ -34,12 +37,12 @@ One requirement of the project, is to be able to handle the incoming email repli
 
 Much of the prototyping was done by the time I was done with my internship, but the project could not get deployed, which kept me from addressing the real issues it might face in production. But it was a fun ride. It was challenging to find edge cases, and dozen of issues which would arise in every single bug that was part of the project.
 
-My project presentation can be viewed at [air.mozilla.org/2013-intern-dubey](https://air.mozilla.org/2013-intern-dubey) slides of which are available [here](http://slid.es/ashishdubey/internpresentation13).
+My project presentation can be viewed at [air.mozilla.org/2013-intern-dubey](https://air.mozilla.org/2013-intern-dubey), slides of which are available [here](http://slid.es/ashishdubey/internpresentation13).
 
 In a nutshell, I had an awesome summer!
 
 ## Thanks
 
-The awesome summer would not be possible and much fun without my supervisor [cvan](https://twitter.com/cvanw). Learnt so much from him and (Matt Basta)[https://twitter.com/mattbasta] while working on commbadge, commonplace and zamboni, having fun code reviews. [Wil Clouser](https://twitter.com/clouserw) and the entire Marketplace team for a place in the awesome team.
+The awesome summer would not be possible and much fun without my supervisor [cvan](https://twitter.com/cvanw). Learnt so much from him and [Matt Basta](https://twitter.com/mattbasta) while working on commbadge, commonplace and zamboni, having fun code reviews. [Wil Clouser](https://twitter.com/clouserw) and the entire Marketplace team for a place in the awesome team.
 
 Special thanks to [Kevin Ngo](http://ngokevin.com) for taking forward the work on communication dashboard, making it awesome and suck less.
