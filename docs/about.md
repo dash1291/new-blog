@@ -5,7 +5,7 @@
 
 I'm Ashish and I'm a CS undergraduate student in Delhi, India. I love programming, especially for the web. Also, I love listening to alternative music and I love to think.
 
-Get in touch with me if you have something to say. You can email me directly <mailto:ashish.dubey91@gmail.com>. I tweet occassionaly as [@dash1291](https://twitter.com/dash1291). I also have a [GitHub profile](https://github.com/dash1291), incase you want to checkout my code or message me there.
+Get in touch with me if you have something to say. You can email me directly <mailto:ashish.dubey91@gmail.com>. I tweet occassionaly as [@dash1291](https://twitter.com/dash1291). I also have a [GitHub profile](https://github.com/dash1291), incase you want to checkout my code.
 
 <h2 id="aboutsite">About this site</h2>
 
