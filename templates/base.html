@@ -6,7 +6,7 @@
     <meta name="keywords" content="python, javascript, django, open-source, ashish dubey, mozilla, wikimedia" />
     <meta name="description" content="Ashish Dubey's Blog" />
     <title>{% block title %}Home{% endblock %} | Ashish Dubey's Blog</title>
-    <link rel="stylesheet" href="{{ site_prefix }}/static/style.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ site_prefix }}static/style.css" type="text/css"/>
      {% block head %}{% endblock %}
   </head>
   <body>
@@ -18,15 +18,15 @@
         <div id="nav">
           <ul>
             <li><a href="{{ site_prefix }}">Home</a></li>
-            <li><a href="{{ site_prefix }}/posts.html">Archive</a></li>
-            <li><a href="{{ site_prefix }}/about.html">About</a></li>
+            <li><a href="{{ site_prefix }}posts.html">Archive</a></li>
+            <li><a href="{{ site_prefix }}about.html">About</a></li>
           </ul>
         </div>
         <div style="clear: both"></div>
       </div>
       <div id="content">{% block content %}{% endblock %}</div>
       <div id="footer">
-				Copyright &copy 2014 Ashish Dubey
+				Copyright &copy 2015 Ashish Dubey
       </div>
     </div>
     <script>

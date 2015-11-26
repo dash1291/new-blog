@@ -4,7 +4,7 @@ from Builder import Builder
 
 
 config = {
-    'SITE_PREFIX': 'http://dash1291.github.io',
+    'SITE_PREFIX': 'https://ashishdubey.xyz/',
     'BLOG_PATH': '.',
     'TEMPLATES_PATH': os.path.join(os.path.dirname(__file__), 'templates')
 }

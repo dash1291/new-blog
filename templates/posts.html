@@ -2,6 +2,6 @@
 {% block content %}
   <h1>All Posts</h1>
   {% for entry in posts %}
-    <div class="post-item"><a class="post-title-link" href="{{ site_prefix }}/{{ entry.path }}">{{ entry.title }}</a><span class="post-date">Posted on {{ entry.date_str }}</span></div>
+    <div class="post-item"><a class="post-title-link" href="{{ site_prefix }}{{ entry.path }}">{{ entry.title }}</a><span class="post-date">Posted on {{ entry.date_str }}</span></div>
   {% endfor %}
 {% endblock %}

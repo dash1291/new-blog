@@ -72,7 +72,7 @@ class Builder():
         template_name = options['layout'] + '.html'
         template = self.template_env.get_template(template_name)
 
-        if options['layout'] == 'post':
+        if options['layout'].startswith('post'):
             # DIRTY: This means its a blog post.
             post_date = self.get_date(doc_path)
             self.posts.append({'title': page_title, 'content': doc_html,
@@ -103,7 +103,7 @@ class Builder():
         open('./site/atom.xml', 'w').write(rendered)
 
     def syntax_highlight(self, html):
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, "html.parser")
         lang_set = []
         codes = soup.find_all('pre')
         if codes:

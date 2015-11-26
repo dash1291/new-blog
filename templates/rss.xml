@@ -3,14 +3,14 @@
   <title>Ashish Dubey's Blog</title>
     <updated>{{ posts[0].date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
   <id>{{ site_prefix }}/</id>
-  <link rel="alternate" href="{{ site_prefix }}/" title="Ashish Dubey' Blog" type="text/html"/>
-	<link rel="self" href="{{ site_prefix }}/atom.rss" title="Ashish Dubey's Blog" type="application/atom+xml"/>
+  <link rel="alternate" href="{{ site_prefix }}" title="Ashish Dubey' Blog" type="text/html"/>
+	<link rel="self" href="{{ site_prefix }}atom.rss" title="Ashish Dubey's Blog" type="application/atom+xml"/>
   <author><name>Ashish Dubey</name></author>
   {% for entry in posts %}
     <entry>
-      <id>{{ site_prefix }}/{{ entry.path }}</id>
+      <id>{{ site_prefix }}{{ entry.path }}</id>
       <title type="text">{{ entry.title }}</title>
-      <link href="{{ site_prefix }}/{{ entry.path }}" rel="alternate" type="text/html"/>
+      <link href="{{ site_prefix }}{{ entry.path }}" rel="alternate" type="text/html"/>
       <updated>{{ entry.date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</updated>
       <published>{{ entry.date.strftime('%Y-%m-%dT%H:%M:%SZ') }}</published>
 			<content type="xhtml" xml:base="{{ site_prefix }}">

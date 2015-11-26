@@ -1,6 +1,15 @@
 {% extends "base.html" %} 
 {% block title %} {{ title }} {% endblock %}
 {% block content %}
+  <script>
+    if ('serviceWorker' in navigator) {
+      var scope = '/';
+      function register() {
+        navigator.serviceWorker.register('/worker.js', {scope: scope})
+      }
+      register();
+    }
+  </script>
   <div class="post">
     <h1>{{ title }} </h2>
     <div class="post-meta">

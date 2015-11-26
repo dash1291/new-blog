@@ -3,9 +3,9 @@
 "layout": "page"
 -----
 
-I'm Ashish. I'm a part of the team of awesome software developers at BrowserStack. I love internet. Also, I love listening to alternative music and eat (a lot).
+I'm Ashish. I'm part of the engineering team at [BrowserStack](https://browserstack.com). I love the internet and building stuff for it.
 
-Get in touch with me if you have something to say. You can email me directly <mailto:ashish.dubey91@gmail.com>. I tweet occassionaly as [@dash1291](https://twitter.com/dash1291). I also have a [GitHub profile](https://github.com/dash1291), incase you want to checkout my code.
+Get in touch with me if you have something to say. You can email me directly <mailto:ashish.dubey91@gmail.com>. I tweet occassionaly as [@dash1291](https://twitter.com/dash1291). I also have a [GitHub profile](https://github.com/dash1291), incase you want to checkout the mix of useful and useless hacks I've put together.
 
 <h2 id="aboutsite">About this site</h2>
 
