@@ -35,8 +35,10 @@ class Builder():
                 os.mkdir(dirname)
             for name in files:
                 if '.md' in name:
+                    print 'compiling %s' % name
                     html = self.build_page(os.path.join(root, name))
-                    open(os.path.join(dirname, name[:-3] + '.html'), 'w').write(html)
+                    print html[1143]
+                    open(os.path.join(dirname, name[:-3] + '.html'), 'w').write(html.encode('utf-8'))
         self.posts.sort(key=itemgetter('date'), reverse=True)
 
     def get_date(self, doc_path):
@@ -88,19 +90,19 @@ class Builder():
         template = self.template_env.get_template('home.html')
         rendered = template.render(site_prefix=self.config['SITE_PREFIX'],
                                    recent_posts=self.posts[:4])
-        open('./site/index.html', 'w').write(rendered)
+        open('./site/index.html', 'w').write(rendered.encode('utf-8'))
 
     def build_archive(self):
         template = self.template_env.get_template('posts.html')
         rendered = template.render(site_prefix=self.config['SITE_PREFIX'],
                                    posts=self.posts)
-        open('./site/posts.html', 'w').write(rendered)
+        open('./site/posts.html', 'w').write(rendered.encode('utf-8'))
 
     def build_rss(self):
         template = self.template_env.get_template('rss.xml')
         rendered = template.render(site_prefix=self.config['SITE_PREFIX'],
                                    posts=self.posts)
-        open('./site/atom.xml', 'w').write(rendered)
+        open('./site/atom.xml', 'w').write(rendered.encode('utf-8'))
 
     def syntax_highlight(self, html):
         soup = BeautifulSoup(html, "html.parser")

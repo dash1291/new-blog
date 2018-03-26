@@ -1,28 +1,29 @@
+body {
+  font-family: verdana, sans-serif;
+  font-size: 14px;
+}
+
 #header {
   border-bottom: 1px solid #ccc;
   margin-top: 25px;
-  margin-bottom: 40px;
-}
-#content {
-  font-family: verdana, sans-serif;
+  margin-bottom: 30px;
 }
 
 #branding a {
   float: left;
-  margin-top: 20px;
-  font-size: 50px;
-  font-family: 'Palatino', sans-serif;
+  margin-bottom: 16px;
+  margin-top: 10px;
+  font-size: 42px;
   color: #AAA;
 }
 
 .post p, p, li, span, a {
-  font-family: "Georgia", sans-serif;
   color: #555;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .post, p {
-  line-height: 30px;
+  line-height: 22px;
 }
 
 .post {
@@ -32,7 +33,6 @@
 }
 
 #content h1, h2, h3 {
-  font-family: "Palatino", sans-serif;
   color: #666633;
   clear: both;
   font-weight: 500;
@@ -53,15 +53,16 @@ a:hover {
 
 
 #container {
-  max-width: 60%;
+  max-width: 900px;
   margin: 0 auto;
   min-width: 800px;
 }
 
-#footer, #footer a, #footer p {
+#footer, #footer a, #footer p, #footer span {
   color: #999;
-  font-size: 16px;
+  font-size: 12px;
   font-style: italic;
+  font-family: inherit;
   margin: 0;
   line-height: 1.5em;
 }
@@ -74,7 +75,7 @@ a:hover {
 
 #nav {
   float: right;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 #nav li {
@@ -100,18 +101,17 @@ a:hover {
 }
 
 .post-item {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   clear: both;
 }
 
 .post-date {
   color: #aaa;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .post-title-link {
-  font-size: 20px;
-  margin-right: 20px;
+  margin-right: 12px;
 }
 
 .post h1 {
@@ -123,7 +123,7 @@ img {
 }
 
 .post-meta {
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 .post-end {
@@ -134,12 +134,10 @@ img {
 
 pre {
   padding: 5px 0 5px 25px;
-  line-height: 20px;
 }
 
 pre span {
   font-family: 'Verdana', sans-serif;
-  font-size: 15px;
   font-weight: 300 !important;
 }
 
@@ -149,7 +147,7 @@ pre span {
     text-align: center;
     width: 100%;
   }
-  
+
   #footer > div {
     text-align: center;
   }
@@ -168,12 +166,12 @@ pre span {
   }
 
   #branding a {
-    font-size: 40px;
+    font-size: 32px;
   }
 
   .post-date {
     color: #aaa;
-    font-size: 16px;
+    font-size: 12px;
     display: block;
     margin-top: 5px;
   }
