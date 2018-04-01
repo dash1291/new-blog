@@ -16,6 +16,6 @@ While I was waiting for my LEDs, I already had an Arduino board to play with. Li
 
 When I finally had my 4x4 matrix of WS2812 LEDs, a soldering kit, and mounting impatience to put everything together, I built my device, and was ready to start coding. After some amount fiddling with arduino code which read bytes from the USB port, and the JS code which fed into arduino the bytes representing audio levels at different frequencies (as in spectrum analyzer), I was beginning to see my new device in action. And, this is what it looked like -
 
-![action figure](/static/img/ws2812-action-fig.jpg)
+<iframe allowFullScreen frameborder="0" height="380" mozallowfullscreen src="https://player.vimeo.com/video/262706101" webkitAllowFullScreen width="640"></iframe>
 
 This turned out to be quite a fun experiment and developed my further interest in developing web apps and more so, devices, which could work together. And it's really so easy.
